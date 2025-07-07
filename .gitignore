@@ -1,0 +1,15 @@
+# Ignore virtual environment
+venv/
+
+# Ignore model and data files (optional)
+*.h5
+*.pkl
+*.json
+datasets/
+uploads/
+__pycache__/
+*.ipynb_checkpoints/
+
+# System/IDE files
+.DS_Store
+.project

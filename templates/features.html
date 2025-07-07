@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Medical AI Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+        }
+
+        main {
+            min-height: 100vh;
+            overflow-y: auto;
+            padding-bottom: 4rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #22D3EE, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: #60A5FA;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #3B82F6, #8B5CF6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-link.active {
+            color: #3B82F6;
+        }
+
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Medical AI Assistant</a>
+            <div class="space-x-6">
+                <a href="/" class="nav-link hover:text-blue-400 transition-colors">Home</a>
+                <a href="/features" class="nav-link active text-blue-400">Features</a>
+                <a href="/about" class="nav-link hover:text-blue-400 transition-colors">About</a>
+                <a href="/assistant" class="nav-link hover:text-blue-400 transition-colors">Assistant</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-20 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-purple-900/20 pointer-events-none"></div>
+            <h1 class="text-5xl font-bold mb-6 rise-up">Powerful Features</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12 rise-up delay-100">Discover the advanced capabilities of our Medical AI Assistant platform, designed to revolutionize medical image analysis.</p>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="container mx-auto px-4 py-16">
+            <div class="feature-grid">
+                <!-- AI Analysis -->
+                <div class="feature-card rise-up delay-200">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="text-2xl font-semibold mb-4">Advanced AI Analysis</h3>
+                    <p class="text-gray-300 mb-6">State-of-the-art neural networks trained on thousands of medical images, achieving 91% accuracy in diagnosis assistance.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">PyTorch</span>
+                        <span class="tech-badge">Deep Learning</span>
+                    </div>
+                </div>
+
+                <!-- Real-time Processing -->
+                <div class="feature-card rise-up delay-300">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="text-2xl font-semibold mb-4">Real-time Processing</h3>
+                    <p class="text-gray-300 mb-6">Lightning-fast analysis with results delivered in seconds, enabling quick medical decisions.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">GPU Acceleration</span>
+                        <span class="tech-badge">Parallel Processing</span>
+                    </div>
+                </div>
+
+                <!-- Multi-modal Support -->
+                <div class="feature-card rise-up delay-400">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="text-2xl font-semibold mb-4">Multi-modal Support</h3>
+                    <p class="text-gray-300 mb-6">Support for various medical imaging formats including X-rays, MRIs, and CT scans.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">DICOM</span>
+                        <span class="tech-badge">JPEG</span>
+                        <span class="tech-badge">PNG</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Interface -->
+                <div class="feature-card rise-up delay-200">
+                    <div class="feature-icon">💻</div>
+                    <h3 class="text-2xl font-semibold mb-4">Interactive Interface</h3>
+                    <p class="text-gray-300 mb-6">User-friendly chat interface with natural language processing for intuitive interaction.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Real-time Chat</span>
+                        <span class="tech-badge">NLP</span>
+                    </div>
+                </div>
+
+                <!-- Secure Data Handling -->
+                <div class="feature-card rise-up delay-300">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="text-2xl font-semibold mb-4">Secure Data Handling</h3>
+                    <p class="text-gray-300 mb-6">Enterprise-grade security with end-to-end encryption and HIPAA compliance.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">End-to-end Encryption</span>
+                        <span class="tech-badge">HIPAA Compliant</span>
+                    </div>
+                </div>
+
+                <!-- Detailed Reporting -->
+                <div class="feature-card rise-up delay-400">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="text-2xl font-semibold mb-4">Detailed Reporting</h3>
+                    <p class="text-gray-300 mb-6">Comprehensive analysis reports with visualization and explanation of findings.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">PDF Export</span>
+                        <span class="tech-badge">Data Visualization</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-20 text-center bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+            <h2 class="text-4xl font-bold mb-8 rise-up">Ready to Experience the Future?</h2>
+            <a href="/assistant" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-all transform hover:scale-105 rise-up delay-100">
+                Start Analysis Now
+            </a>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Medical AI Assistant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.rise-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

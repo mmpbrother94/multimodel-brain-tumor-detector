@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical AI Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+        }
+        main {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            padding-top: 64px; /* Height of nav bar */
+        }
+        .cta-button {
+            cursor: pointer !important;
+            position: relative;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body class="bg-[#1a1c2e]">
+    <!-- Background Animation -->
+    <div class="background-animation"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-opacity-90 bg-gray-900 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-3">
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    <span class="text-xl font-bold text-white">MedAI Assistant</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="space-x-6">
+                        <a href="/" class="nav-link active text-blue-400">Home</a>
+                        <a href="/features" class="nav-link hover:text-blue-400 transition-colors">Features</a>
+                        <a href="/about" class="nav-link hover:text-blue-400 transition-colors">About</a>
+                        <a href="/assistant" class="nav-link hover:text-blue-400 transition-colors">Assistant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section fullscreen-section relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-purple-900/30 z-0"></div>
+            <div class="container relative z-10 h-full flex items-center justify-center">
+                <div class="hero-content text-center max-w-5xl mx-auto px-4">
+                    <div class="space-y-8">
+                        <div class="glow-text-container">
+                            <h1 class="text-8xl font-extrabold text-white mb-4 animate-fade-in glow-text">
+                                Medical
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">AI</span>
+                                Assistant
+                            </h1>
+                        </div>
+                        <p class="text-4xl text-gray-100 font-light leading-relaxed mb-8 animate-fade-in-delay-1 text-glow-white">
+                            Revolutionizing Healthcare with
+                            <span class="font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text glow-text-blue">Advanced AI</span>
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-8 justify-center items-center animate-fade-in-delay-2">
+                            <a href="/assistant" class="glow-button primary-glow-button group">
+                                <span class="relative z-10">Start Analysis</span>
+                                <svg class="w-6 h-6 ml-2 -mr-1 inline-block transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </a>
+                            <a href="/features" class="glow-button secondary-glow-button group">
+                                <span class="relative z-10">Learn More</span>
+                                <svg class="w-6 h-6 ml-2 -mr-1 inline-block transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center animate-fade-in-delay-3">
+                            <div class="stat-card glow-card">
+                                <h4 class="text-5xl font-bold text-cyan-400 glow-text-cyan">91%</h4>
+                                <p class="text-lg text-gray-200 mt-2">Accuracy Rate</p>
+                            </div>
+                            <div class="stat-card glow-card">
+                                <h4 class="text-5xl font-bold text-blue-400 glow-text-blue">&lt;2s</h4>
+                                <p class="text-lg text-gray-200 mt-2">Processing Time</p>
+                            </div>
+                            <div class="stat-card glow-card">
+                                <h4 class="text-5xl font-bold text-purple-400 glow-text-purple">24/7</h4>
+                                <p class="text-lg text-gray-200 mt-2">Availability</p>
+                            </div>
+                            <div class="stat-card glow-card">
+                                <h4 class="text-5xl font-bold text-indigo-400 glow-text-indigo">1000s+</h4>
+                                <p class="text-lg text-gray-200 mt-2">Images Trained</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative Elements -->
+            <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent glow-line"></div>
+            <div class="absolute -left-32 -top-32 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute -right-32 -top-32 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute left-1/2 top-1/2 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </section>
+
+        <!-- Brain Scan Section -->
+        <section class="feature-section fullscreen-section">
+            <div class="container">
+                <div class="feature-content">
+                    <div class="feature-image-container rise-up">
+                        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExczBzczc5Y2xjYnRuNGdtYngwYmE0bGJweWUxbmRwempiOW8zbDc5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QtW0qjBHLGH9C/giphy.gif" alt="Brain Scan Analysis">
+                    </div>
+                    <div class="feature-text">
+                        <h2 class="section-title rise-up delay-100">Brain Scan Analysis</h2>
+                        <p class="feature-description rise-up delay-200">Advanced neural network analysis for accurate brain scan interpretation. Our AI system can detect anomalies with unprecedented accuracy.</p>
+                        <div class="feature-highlights">
+                            <div class="highlight-item rise-up delay-300">
+                                <span class="highlight-icon">🎯</span>
+                                <h4 class="text-xl font-semibold text-white">High Precision</h4>
+                                <p class="text-gray-300">91% accuracy in anomaly detection</p>
+                            </div>
+                            <div class="highlight-item rise-up delay-400">
+                                <span class="highlight-icon">⚡</span>
+                                <h4 class="text-xl font-semibold text-white">Intelligent Analysis</h4>
+                                <p class="text-gray-300">Advanced image recognition with NLP insights</p>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">📊</span>
+                                <h4>Extensive Training</h4>
+                                <p>Trained on thousands of medical images</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chest X-Ray Section -->
+        <section class="feature-section fullscreen-section">
+            <div class="container">
+                <div class="feature-content reverse">
+                    <div class="feature-image-container rise-up">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*Ig0f5fAZqytQjdFV7drlAQ.gif" alt="Chest X-Ray Analysis">
+                    </div>
+                    <div class="feature-text">
+                        <h2 class="section-title rise-up delay-100">Chest X-Ray Analysis</h2>
+                        <p class="feature-description rise-up delay-200">Precise detection of abnormalities in chest radiographs using state-of-the-art deep learning models.</p>
+                        <div class="feature-highlights">
+                            <div class="highlight-item rise-up delay-300">
+                                <span class="highlight-icon">🔍</span>
+                                <h4 class="text-xl font-semibold text-white">Deep Analysis</h4>
+                                <p class="text-gray-300">Multi-layer examination of each scan</p>
+                            </div>
+                            <div class="highlight-item rise-up delay-400">
+                                <span class="highlight-icon">🔍</span>
+                                <h4 class="text-xl font-semibold text-white">Microscopic Detection</h4>
+                                <p class="text-gray-300">Catches subtle changes and minute defects</p>
+                            </div>
+                            <div class="highlight-item rise-up delay-400">
+                                <span class="highlight-icon">📊</span>
+                                <h4 class="text-xl font-semibold text-white">Detailed Reports</h4>
+                                <p class="text-gray-300">Comprehensive analysis breakdown</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Processing Section -->
+        <section class="feature-section fullscreen-section">
+            <div class="container">
+                <div class="feature-content">
+                    <div class="feature-image-container rise-up">
+                        <img src="https://media.giphy.com/media/4aCvUZWtSq1W/giphy.gif" alt="Real-time Processing">
+                    </div>
+                    <div class="feature-text">
+                        <h2 class="section-title rise-up delay-100">Real-time Processing</h2>
+                        <p class="feature-description rise-up delay-200">Lightning-fast analysis and instant results with our advanced processing pipeline.</p>
+                        <div class="feature-highlights">
+                            <div class="highlight-item rise-up delay-300">
+                                <span class="highlight-icon">⚡</span>
+                                <h4 class="text-xl font-semibold text-white">Instant Analysis</h4>
+                                <p class="text-gray-300">Results in under 2 seconds</p>
+                            </div>
+                            <div class="highlight-item rise-up delay-400">
+                                <span class="highlight-icon">🔄</span>
+                                <h4 class="text-xl font-semibold text-white">Live Updates</h4>
+                                <p class="text-gray-300">Real-time progress tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section fullscreen-section">
+            <div class="container">
+                <h2 class="section-title">About Our Technology</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>Our AI-powered medical image analysis system provides cutting-edge diagnostics support for healthcare professionals. Using advanced machine learning algorithms, we deliver accurate and rapid analysis of various medical imaging modalities.</p>
+                        <ul class="about-features">
+                            <li>Advanced Neural Networks</li>
+                            <li>Real-time Analysis</li>
+                            <li>Multiple Imaging Modalities</li>
+                            <li>Secure Data Processing</li>
+                        </ul>
+                        <a href="/assistant" class="cta-button" role="button">Try It Now</a>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <h3>91%</h3>
+                            <p>Accuracy Rate</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>&lt;2s</h3>
+                            <p>Processing Time</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>24/7</h3>
+                            <p>Availability</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>1000s+</h3>
+                            <p>Images Trained</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Team CRUSADERS | HACKFEST 2025</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
