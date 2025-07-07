@@ -1,5 +1,5 @@
 # 🧠 Multimodel Brain Tumor Detector
-![Tumor MRI](static/sample_mri.jpg)
+![Tumor MRI](sample_mri.jpg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/) [![TensorFlow](https://img.shields.io/badge/Backend-TensorFlow-orange)](https://www.tensorflow.org/) [![Flask](https://img.shields.io/badge/Framework-Flask-lightgrey)](https://flask.palletsprojects.com/)
 
 > A deep learning-based web app to classify brain tumors from MRI images using a trained multiclass CNN model.
